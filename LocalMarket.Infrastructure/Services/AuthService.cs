@@ -46,11 +46,6 @@ namespace LocalMarket.Infrastructure.Services
             if (session?.User?.Id == null)
                 throw new InvalidOperationException("Registration failed");
 
-            // 3. Establecer sesión para que RLS permita el INSERT
-            if (session.AccessToken != null)
-                await _supabase.Auth.SetSession(
-                    session.AccessToken, session.RefreshToken!);
-
             // USAMOS EL MAPPER INYECTADO
             var model = _mapper.Map<UserModel>(request);
             model.Id = Guid.Parse(session.User.Id);
