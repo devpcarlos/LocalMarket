@@ -1,0 +1,18 @@
+# Variables de entorno — NUNCA subir al repositorio
+.env
+*.env
+.env.local
+.env.production
+
+# Archivos de usuario de Visual Studio
+*.user
+*.suo
+.vs/
+
+# Carpetas de compilación
+bin/
+obj/
+
+# Credenciales de Firebase si las agregas después
+firebase-credentials.json
+*credentials*.json

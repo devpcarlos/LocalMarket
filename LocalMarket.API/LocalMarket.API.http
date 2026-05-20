@@ -1,0 +1,6 @@
+@LocalMarket.API_HostAddress = http://localhost:5110
+
+GET {{LocalMarket.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
