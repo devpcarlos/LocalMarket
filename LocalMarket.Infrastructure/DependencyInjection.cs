@@ -6,6 +6,8 @@ using LocalMarket.Infrastructure.Repositories;
 using LocalMarket.Infrastructure.Services;
 using Microsoft.Extensions.DependencyInjection;
 using MapsterMapper;
+using Microsoft.EntityFrameworkCore;
+using LocalMarket.Infrastructure.Persistence;
 
 namespace LocalMarket.Infrastructure
 {
@@ -15,35 +17,21 @@ namespace LocalMarket.Infrastructure
         this IServiceCollection services)
         {
             // Supabase — lee variables de entorno
-            var supaBaseUrl = Environment.GetEnvironmentVariable("SUPABASE_URL")
-            ?? throw new InvalidOperationException("SUPABASE_URL no configurada en .env");
+            var conection = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING")
+            ?? throw new InvalidOperationException("DB_CONNECTION_STRING no configurado");
 
-
-                var supaBaseKey = Environment.GetEnvironmentVariable("SUPABASE_KEY")
-            ?? throw new InvalidOperationException("SUPABASE_KEY no configurada en .env");
-
-            //supabase
-            services.AddSingleton(sp =>
-                {
-                    var client = new Supabase.Client(supaBaseUrl, supaBaseKey,
-                    new Supabase.SupabaseOptions
-                    {
-                        AutoRefreshToken = true,
-                        AutoConnectRealtime = false
-                });
-                    client.InitializeAsync().GetAwaiter().GetResult();
-                    return client;
-
-                });
+            services.AddDbContext<AppDbContext>(options =>
+                options.UseNpgsql(conection));
             // CONFIGURACIÓN DE MAPSTER
 
             var config = TypeAdapterConfig.GlobalSettings;
             config.Scan(Assembly.GetExecutingAssembly());
             services.AddSingleton(config);
+
             services.AddScoped<IMapper, Mapper>();
 
             // Servicios y 
-            services.AddSingleton<IJwtService, JwtService>();
+            services.AddSingleton<IJwtService, JwtTokenProvider>();
             services.AddScoped<IBusinessService, BusinessService>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IProductService, ProductService>();

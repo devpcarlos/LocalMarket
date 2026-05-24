@@ -1,6 +1,5 @@
 ﻿using LocalMarket.Core.DTos.Products;
 using LocalMarket.Core.Entities;
-using LocalMarket.Infrastructure.Persistence.Models;
 using Mapster;
 namespace LocalMarket.Infrastructure.Mappers
 {
@@ -8,13 +7,7 @@ namespace LocalMarket.Infrastructure.Mappers
     {
         public void Register(TypeAdapterConfig config)
         {
-            // ProductModel → Product
-            config.NewConfig<ProductModel, Product>();
-
             // Product → ProductModel
-            config.NewConfig<Product, ProductModel>();
-
-            // Product → ProductDto
             config.NewConfig<Product, ProductDto>();
 
             // CreateProductDto → Product
@@ -30,13 +23,7 @@ namespace LocalMarket.Infrastructure.Mappers
                 .Ignore(dest => dest.BusinessId)
                 .Ignore(dest => dest.CreatedAt);
 
-            // ProductCategoryModel → ProductCategory
-            config.NewConfig<ProductCategoryModel, ProductCategory>();
-
             // ProductCategory → ProductCategoryModel
-            config.NewConfig<ProductCategory, ProductCategoryModel>();
-
-            // ProductCategory → ProductCategoryDto
             config.NewConfig<ProductCategory, ProductCategoryDto>();
 
             // CreateProductCategoryDto → ProductCategory

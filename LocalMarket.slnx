@@ -1,8 +1,9 @@
 <Solution>
   <Folder Name="/Elementos de la solución/">
     <File Path=".gitignore" />
+    <File Path="docker-compose.yml" />
   </Folder>
-  <Project Path="LocalMarket.API/LocalMarket.API.csproj" />
-  <Project Path="LocalMarket.Core/LocalMarket.Core.csproj" />
-  <Project Path="LocalMarket.Infrastructure/LocalMarket.Infrastructure.csproj" />
+  <Project Path="D:/AppLocal/LocalMarket/LocalMarket.API/LocalMarket.API.csproj" />
+  <Project Path="D:/AppLocal/LocalMarket/LocalMarket.Core/LocalMarket.Core.csproj" />
+  <Project Path="D:/AppLocal/LocalMarket/LocalMarket.Infrastructure/LocalMarket.Infrastructure.csproj" />
 </Solution>

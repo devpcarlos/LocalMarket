@@ -1,22 +1,22 @@
 ﻿using LocalMarket.Core.Entities;
 using LocalMarket.Core.Interfaces;
+using System.Security.Claims;
+using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 using System.Security.Cryptography;
-using System.Text;
 
 namespace LocalMarket.Infrastructure.Services
 {
 
   
-    public class JwtService : IJwtService
+    public class JwtTokenProvider : IJwtService
     {
         private readonly string _key;
         private readonly string _issuer;
         private readonly int _expirationHours;
 
-        public JwtService()
+        public JwtTokenProvider()
         {
             _key = Environment.GetEnvironmentVariable("JWT_SECRET_KEY")
                 ?? throw new InvalidOperationException("JWT_SECRET_KEY not configured");

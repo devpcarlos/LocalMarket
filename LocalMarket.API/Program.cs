@@ -1,9 +1,11 @@
+using DotNetEnv;
+using LocalMarket.Infrastructure;
+using LocalMarket.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
 using System.Text;
-using DotNetEnv;
-using LocalMarket.Infrastructure;
 
 // .env configuration
 Env.Load();
@@ -15,11 +17,11 @@ builder.Services.AddControllers();
 
 // JWT
 var jwtKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY")
-    ?? throw new InvalidOperationException("JWT_SECRET_KEY no configurada en .env");
+    ?? throw new InvalidOperationException("JWT_SECRET_KEY no configurado");
 
 
 var jwtIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER")
-    ?? throw new InvalidOperationException("JWT_ISSUER no configurada en .env");
+    ?? throw new InvalidOperationException("JWT_ISSUER no configurado");
 
 
 
@@ -61,6 +63,13 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
+// Aplicar migraciones automáticamente al iniciar
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate();
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -70,7 +79,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseCors("LocalMarketPolicy");
-app.UseMiddleware<LocalMarket.API.Middleware.GlobalExceptionMiddleware>();
+app.UseMiddleware<LocalMarket.API.Middleware.GlobalExceptionHandler>();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();

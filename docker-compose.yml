@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:18
+    container_name: localmarket_db
+    environment:
+      POSTGRES_DB: localmarket
+      postgres_user: postgres
+      postgres_password: 03L0calM4rk3t
+    ports:
+       - "5432:5432"
+    volumes:
+      - localmarket_data:/var/lib/postgresql/data
+
+volumes:
+  localmarket_data:

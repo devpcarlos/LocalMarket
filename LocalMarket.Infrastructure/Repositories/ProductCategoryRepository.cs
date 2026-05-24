@@ -1,46 +1,36 @@
 ﻿using LocalMarket.Core.Entities;
 using LocalMarket.Core.Interfaces;
-using LocalMarket.Infrastructure.Persistence.Models;
-using Mapster;
+using LocalMarket.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace LocalMarket.Infrastructure.Repositories
 {
     public class ProductCategoryRepository : IProductCategoryRepository
     {
-        private readonly Supabase.Client _supabase;
-
-        public ProductCategoryRepository(Supabase.Client supabase)
-        {
-            _supabase = supabase;
-        }
+        private readonly AppDbContext _dbContext;
 
         public async Task<List<ProductCategory>> GetByBusinessIdAsync(Guid businessId)
         {
-            var result = await _supabase
-                .From<ProductCategoryModel>()
+            return await _dbContext.ProductCategories
                 .Where(c => c.BusinessId == businessId)
-                .Order(c => c.SortOrder, Supabase.Postgrest.Constants.Ordering.Ascending)
-                .Get();
-
-            return result.Models.Adapt<List<ProductCategory>>();
+                .OrderBy(c => c.SortOrder).ToListAsync();
         }
 
         public async Task<ProductCategory> CreateAsync(ProductCategory category)
         {
-            var model = category.Adapt<ProductCategoryModel>();
-            var result = await _supabase
-                .From<ProductCategoryModel>()
-                .Insert(model);
-
-            return result.Models.First().Adapt<ProductCategory>();
+            await _dbContext.ProductCategories.AddAsync(category);
+            await _dbContext.SaveChangesAsync();
+            return category;
         }
 
         public async Task DeleteAsync(Guid id)
         {
-            await _supabase
-                .From<ProductCategoryModel>()
-                .Where(c => c.Id == id)
-                .Delete();
+            var category = await _dbContext.ProductCategories.FindAsync(id);
+            if (category != null)
+            {
+                _dbContext.ProductCategories.Remove(category);
+                await _dbContext.SaveChangesAsync();
+            }
         }
     }
 }

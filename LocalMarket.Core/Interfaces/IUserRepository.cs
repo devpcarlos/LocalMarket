@@ -6,5 +6,7 @@ namespace LocalMarket.Core.Interfaces
     {
         Task<User?> GetByIdAsync(Guid id);
         Task CreateAsync(User user);
+
+        Task<User?> GetByEmailAsync(string email);
     }
 }

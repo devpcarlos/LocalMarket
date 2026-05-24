@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace LocalMarket.Core.Entities
 {
     public class BusinessCategory
