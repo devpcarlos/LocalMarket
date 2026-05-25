@@ -36,7 +36,7 @@ namespace LocalMarket.Infrastructure.Services
         }
 
         public async Task<ProductDto> CreateAsync(
-            Guid userId, Guid businessId, CreateProductDto dto)
+            Guid userId, Guid businessId, RequestProductDto dto)
         {
             var business = await _businessRepository.GetByIdAsync(businessId)
                 ?? throw new KeyNotFoundException($"Business {businessId} not found");
@@ -54,7 +54,7 @@ namespace LocalMarket.Infrastructure.Services
         }
 
         public async Task<ProductDto> UpdateAsync(
-            Guid userId, Guid productId, UpdateProductDto dto)
+            Guid userId, Guid productId, RequestProductDto dto)
         {
             var product = await _productRepository.GetByIdAsync(productId)
                 ?? throw new KeyNotFoundException($"Product {productId} not found");

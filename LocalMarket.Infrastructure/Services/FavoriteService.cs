@@ -24,7 +24,7 @@ namespace LocalMarket.Infrastructure.Services
             return favorites.Adapt<List<FavoriteDto>>();
         }
 
-        public async Task<FavoriteDto> AddAsync(Guid userId, AddFavoriteDto dto)
+        public async Task<FavoriteDto> AddAsync(Guid userId, FavoriteDto dto)
         {
             _ = await _businessRepository.GetByIdAsync(dto.BusinessId)
                ?? throw new KeyNotFoundException($"Business {dto.BusinessId} not found");

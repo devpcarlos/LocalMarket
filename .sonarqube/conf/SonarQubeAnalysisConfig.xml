@@ -163,6 +163,8 @@
   </ServerSettings>
   <LocalSettings>
     <Property Name="sonar.host.url">http://localhost:9500</Property>
+    <Property Name="sonar.cpd.exclusions">**/Migrations/**</Property>
+    <Property Name="sonar.exclusions">**/Migrations/**</Property>
   </LocalSettings>
   <ScannerOptsSettings />
   <AnalyzersSettings>

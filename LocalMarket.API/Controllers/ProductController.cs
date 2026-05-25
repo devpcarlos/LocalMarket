@@ -38,7 +38,7 @@ namespace LocalMarket.API.Controllers
         [Authorize(Roles = "business")]
         [HttpPost("business/{businessId:guid}")]
         public async Task<IActionResult> Create(
-            Guid businessId, [FromBody] CreateProductDto dto)
+            Guid businessId, [FromBody] RequestProductDto dto)
         {
             var userId = GetUserId();
             var result = await _productService.CreateAsync(userId, businessId, dto);
@@ -50,7 +50,7 @@ namespace LocalMarket.API.Controllers
         [Authorize(Roles = "business")]
         [HttpPut("{id:guid}")]
         public async Task<IActionResult> Update(
-            Guid id, [FromBody] UpdateProductDto dto)
+            Guid id, [FromBody]  RequestProductDto dto)
         {
             var userId = GetUserId();
             var result = await _productService.UpdateAsync(userId, id, dto);

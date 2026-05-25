@@ -1,0 +1,375 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Compilador de Microsoft (R) Visual C#",
+        "version": "5.6.0.0",
+        "fileVersion": "5.6.0-2.26230.102 (caa81fa4971f74880cdab61990cb1b11420939ec)",
+        "semanticVersion": "5.6.0",
+        "language": "es-MX"
+      },
+      "results": [
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'You are not the owner of this business' 4 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/AppLocal/LocalMarket/LocalMarket.Infrastructure/Services/ProductService.cs",
+                "region": {
+                  "startLine": 46,
+                  "startColumn": 21,
+                  "endLine": 46,
+                  "endColumn": 61
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/AppLocal/LocalMarket/LocalMarket.Infrastructure/Services/ProductService.cs",
+                "region": {
+                  "startLine": 83,
+                  "startColumn": 21,
+                  "endLine": 83,
+                  "endColumn": 61
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/AppLocal/LocalMarket/LocalMarket.Infrastructure/Services/ProductService.cs",
+                "region": {
+                  "startLine": 105,
+                  "startColumn": 21,
+                  "endLine": 105,
+                  "endColumn": 61
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/AppLocal/LocalMarket/LocalMarket.Infrastructure/Services/ProductService.cs",
+                "region": {
+                  "startLine": 125,
+                  "startColumn": 21,
+                  "endLine": 125,
+                  "endColumn": 61
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'NOW()' 11 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/AppLocal/LocalMarket/LocalMarket.Infrastructure/Persistence/AppDbContext.cs",
+                "region": {
+                  "startLine": 37,
+                  "startColumn": 65,
+                  "endLine": 37,
+                  "endColumn": 72
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/AppLocal/LocalMarket/LocalMarket.Infrastructure/Persistence/AppDbContext.cs",
+                "region": {
+                  "startLine": 47,
+                  "startColumn": 65,
+                  "endLine": 47,
+                  "endColumn": 72
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/AppLocal/LocalMarket/LocalMarket.Infrastructure/Persistence/AppDbContext.cs",
+                "region": {
+                  "startLine": 62,
+                  "startColumn": 65,
+                  "endLine": 62,
+                  "endColumn": 72
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/AppLocal/LocalMarket/LocalMarket.Infrastructure/Persistence/AppDbContext.cs",
+                "region": {
+                  "startLine": 74,
+                  "startColumn": 65,
+                  "endLine": 74,
+                  "endColumn": 72
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/AppLocal/LocalMarket/LocalMarket.Infrastructure/Persistence/AppDbContext.cs",
+                "region": {
+                  "startLine": 90,
+                  "startColumn": 65,
+                  "endLine": 90,
+                  "endColumn": 72
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/AppLocal/LocalMarket/LocalMarket.Infrastructure/Persistence/AppDbContext.cs",
+                "region": {
+                  "startLine": 111,
+                  "startColumn": 65,
+                  "endLine": 111,
+                  "endColumn": 72
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/AppLocal/LocalMarket/LocalMarket.Infrastructure/Persistence/AppDbContext.cs",
+                "region": {
+                  "startLine": 124,
+                  "startColumn": 62,
+                  "endLine": 124,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/AppLocal/LocalMarket/LocalMarket.Infrastructure/Persistence/AppDbContext.cs",
+                "region": {
+                  "startLine": 135,
+                  "startColumn": 65,
+                  "endLine": 135,
+                  "endColumn": 72
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/AppLocal/LocalMarket/LocalMarket.Infrastructure/Persistence/AppDbContext.cs",
+                "region": {
+                  "startLine": 147,
+                  "startColumn": 65,
+                  "endLine": 147,
+                  "endColumn": 72
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/AppLocal/LocalMarket/LocalMarket.Infrastructure/Persistence/AppDbContext.cs",
+                "region": {
+                  "startLine": 160,
+                  "startColumn": 65,
+                  "endLine": 160,
+                  "endColumn": 72
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/AppLocal/LocalMarket/LocalMarket.Infrastructure/Persistence/AppDbContext.cs",
+                "region": {
+                  "startLine": 187,
+                  "startColumn": 65,
+                  "endLine": 187,
+                  "endColumn": 72
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null,
+              "3": null,
+              "4": null,
+              "5": null,
+              "6": null,
+              "7": null,
+              "8": null,
+              "9": null
+            }
+          }
+        },
+        {
+          "ruleId": "CA1861",
+          "level": "note",
+          "message": "Preferir campos \"static readonly\" frente a argumentos de matriz constantes si se llama repetidamente al método llamado y no muta la matriz pasada",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/AppLocal/LocalMarket/LocalMarket.Infrastructure/Migrations/20260524045312_InitialCreate.cs",
+                "region": {
+                  "startLine": 322,
+                  "startColumn": 26,
+                  "endLine": 322,
+                  "endColumn": 69
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "paramName": "columns"
+            }
+          }
+        },
+        {
+          "ruleId": "CA1861",
+          "level": "note",
+          "message": "Preferir campos \"static readonly\" frente a argumentos de matriz constantes si se llama repetidamente al método llamado y no muta la matriz pasada",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/AppLocal/LocalMarket/LocalMarket.Infrastructure/Migrations/20260524045312_InitialCreate.cs",
+                "region": {
+                  "startLine": 350,
+                  "startColumn": 26,
+                  "endLine": 350,
+                  "endColumn": 60
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "paramName": "columns"
+            }
+          }
+        },
+        {
+          "ruleId": "CA1861",
+          "level": "note",
+          "message": "Preferir campos \"static readonly\" frente a argumentos de matriz constantes si se llama repetidamente al método llamado y no muta la matriz pasada",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/AppLocal/LocalMarket/LocalMarket.Infrastructure/Migrations/20260524045312_InitialCreate.cs",
+                "region": {
+                  "startLine": 366,
+                  "startColumn": 26,
+                  "endLine": 366,
+                  "endColumn": 58
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "paramName": "columns"
+            }
+          }
+        },
+        {
+          "ruleId": "CA1861",
+          "level": "note",
+          "message": "Preferir campos \"static readonly\" frente a argumentos de matriz constantes si se llama repetidamente al método llamado y no muta la matriz pasada",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/AppLocal/LocalMarket/LocalMarket.Infrastructure/Migrations/20260524045312_InitialCreate.cs",
+                "region": {
+                  "startLine": 408,
+                  "startColumn": 26,
+                  "endLine": 408,
+                  "endColumn": 58
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "paramName": "columns"
+            }
+          }
+        },
+        {
+          "ruleId": "CA1861",
+          "level": "note",
+          "message": "Preferir campos \"static readonly\" frente a argumentos de matriz constantes si se llama repetidamente al método llamado y no muta la matriz pasada",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/AppLocal/LocalMarket/LocalMarket.Infrastructure/Migrations/20260524045312_InitialCreate.cs",
+                "region": {
+                  "startLine": 419,
+                  "startColumn": 26,
+                  "endLine": 419,
+                  "endColumn": 61
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "paramName": "columns"
+            }
+          }
+        }
+      ],
+      "rules": {
+        "CA1861": {
+          "id": "CA1861",
+          "shortDescription": "Evitar matrices constantes como argumentos",
+          "fullDescription": "Las matrices constantes pasadas como argumentos no se reutilizan cuando se llaman repetidamente, lo que implica que se cree una nueva matriz cada vez. Considere la posibilidad de extraerlas a campos \"static readonly\" para mejorar el rendimiento si la matriz pasada no se muta dentro del método llamado.",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1861",
+          "properties": {
+            "category": "Performance",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "S1192": {
+          "id": "S1192",
+          "shortDescription": "String literals should not be duplicated",
+          "fullDescription": "Duplicated string literals make the process of refactoring complex and error-prone, as any change would need to be propagated on all occurrences.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": false,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

@@ -15,13 +15,13 @@ namespace LocalMarket.Infrastructure.Mappers
                 .Map(dest => dest.CreatedAt, _ => DateTime.UtcNow)
                 .Ignore(dest => dest.Id)
                 .Ignore(dest => dest.UserId)
-                .Ignore(dest => dest.LogoUrl);
+                .Ignore(dest => dest.LogoUrl ?? string.Empty);
 
             // UpdateBusinessDto → Business
             config.NewConfig<UpdateBusinessDto, Business>()
                 .Ignore(dest => dest.Id)
                 .Ignore(dest => dest.UserId)
-                .Ignore(dest => dest.LogoUrl)
+                .Ignore(dest => dest.LogoUrl ?? string.Empty)
                 .Ignore(dest => dest.IsVerified)
                 .Ignore(dest => dest.CreatedAt);
         }

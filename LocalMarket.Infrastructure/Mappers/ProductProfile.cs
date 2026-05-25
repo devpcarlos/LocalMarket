@@ -12,7 +12,8 @@ namespace LocalMarket.Infrastructure.Mappers
                 .Ignore(dest => dest.Id)
                 .Ignore(dest => dest.BusinessId)
                 .Map(dest => dest.Name, src => src.Name.Trim())
-                .Map(dest => dest.Description, src => src.Description.Trim())
+                .Map(dest => dest.Description, src => src.Description != null 
+                ? src.Description.Trim() : string.Empty)
                 .Map(dest => dest.Price, src => src.Price)
                 .Map(dest => dest.IsAvailable, src => src.IsAvailable);
 
@@ -37,7 +38,7 @@ namespace LocalMarket.Infrastructure.Mappers
             // CreateProductCategoryDto → ProductCategory
             config.NewConfig<CreateProductCategoryDto, ProductCategory>()
                 .Map(dest => dest.CreatedAt, _ => DateTime.UtcNow)
-                .Ignore(dest => dest.Id)
+                .Ignore(dest => dest.Id ?? Guid.Empty)
                 .Ignore(dest => dest.BusinessId);
         }
     }

@@ -28,8 +28,13 @@ namespace LocalMarket.Infrastructure.Repositories
 
             if (!string.IsNullOrWhiteSpace(search))
             {
-                var searchLower = search.ToLower();
-                query = query.Where(b => b.Name.ToLower().Contains(searchLower));
+                var safeSearch = search
+                    .Replace("\\", "\\\\")
+                    .Replace("%", "\\%")
+                    .Replace("", "\\");
+
+                query = query.Where(b =>
+                    EF.Functions.Like(b.Name, $"%{safeSearch}%", "\\"));
             }
 
             return await query.ToListAsync();
