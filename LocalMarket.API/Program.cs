@@ -1,7 +1,9 @@
 using DotNetEnv;
+using LocalMarket.API.Middleware;
 using LocalMarket.Infrastructure;
 using LocalMarket.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
@@ -12,9 +14,6 @@ Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
 
-//Controllers
-builder.Services.AddControllers();
-
 // JWT
 var jwtKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY")
     ?? throw new InvalidOperationException("JWT_SECRET_KEY no configurado");
@@ -23,7 +22,31 @@ var jwtKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY")
 var jwtIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER")
     ?? throw new InvalidOperationException("JWT_ISSUER no configurado");
 
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
+builder.Services.AddControllers()
+    .ConfigureApiBehaviorOptions(options =>
+    {
+        options.InvalidModelStateResponseFactory = context =>
+        {
+            var errors = context.ModelState
+                .Where(e => e.Value?.Errors.Count > 0)
+                .ToDictionary(
+                    e => e.Key,
+                    e => e.Value!.Errors.Select(x => x.ErrorMessage).ToArray()
+                );
 
+            var problem = new ValidationProblemDetails(errors)
+            {
+                Type = "https://localmarket.com/errors/validation",
+                Title = "Validation Error",
+                Status = StatusCodes.Status400BadRequest,
+                Instance = context.HttpContext.Request.Path
+            };
+
+            return new BadRequestObjectResult(problem);
+        };
+    });
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -42,10 +65,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 builder.Services.AddAuthorization();
-
-// Servicios de Infrastructure
 builder.Services.AddInfrastructure();
 
+//pipeline
 // CORS para permitir conexión desde MAUI
 builder.Services.AddCors(options =>
 {
@@ -67,7 +89,7 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    db.Database.Migrate();
+     await db.Database.MigrateAsync();
 }
 
 // Configure the HTTP request pipeline.
@@ -77,12 +99,13 @@ if (app.Environment.IsDevelopment())
     app.MapScalarApiReference();
 }
 
+
+app.UseExceptionHandler();
 app.UseHttpsRedirection();
 app.UseCors("LocalMarketPolicy");
-app.UseMiddleware<LocalMarket.API.Middleware.GlobalExceptionHandler>();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
-app.Run();
+await app.RunAsync();
 

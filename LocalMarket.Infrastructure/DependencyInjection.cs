@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MapsterMapper;
 using Microsoft.EntityFrameworkCore;
 using LocalMarket.Infrastructure.Persistence;
+using LocalMarket.Infrastructure.Security;
 
 namespace LocalMarket.Infrastructure
 {
@@ -35,6 +36,7 @@ namespace LocalMarket.Infrastructure
             services.AddScoped<IBusinessService, BusinessService>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
 
             //Repositorios
             services.AddScoped<IUserRepository, UserRepository>();

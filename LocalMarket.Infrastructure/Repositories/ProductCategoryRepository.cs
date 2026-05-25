@@ -9,6 +9,11 @@ namespace LocalMarket.Infrastructure.Repositories
     {
         private readonly AppDbContext _dbContext;
 
+        public ProductCategoryRepository(AppDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
         public async Task<List<ProductCategory>> GetByBusinessIdAsync(Guid businessId)
         {
             return await _dbContext.ProductCategories
@@ -31,6 +36,11 @@ namespace LocalMarket.Infrastructure.Repositories
                 _dbContext.ProductCategories.Remove(category);
                 await _dbContext.SaveChangesAsync();
             }
+        }
+
+        public async Task<ProductCategory?> GetByIdAsync(Guid id)
+        {
+            return await _dbContext.ProductCategories.FindAsync(id);
         }
     }
 }

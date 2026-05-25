@@ -6,6 +6,8 @@ namespace LocalMarket.Core.Interfaces
     {
         Task<AuthResponseDto> RegisterAsync(RegisterRequestDto request);
         Task<AuthResponseDto> LoginAsync(LoginRequestDto request);
+        Task<AuthResponseDto> RefreshTokenAsync(RefreshTokenRequestDto request, string ipAddress);
+        Task LogoutAsync(string refreshToken);
         Task RecoverPasswordAsync(string email);
     }
 }

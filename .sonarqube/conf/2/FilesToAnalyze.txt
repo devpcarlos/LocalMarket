@@ -1,0 +1,13 @@
+﻿D:\AppLocal\LocalMarket\LocalMarket.API\Controllers\AuthController.cs
+D:\AppLocal\LocalMarket\LocalMarket.API\Controllers\ProductController.cs
+D:\AppLocal\LocalMarket\LocalMarket.API\Middleware\GlobalExceptionHandler.cs
+D:\AppLocal\LocalMarket\LocalMarket.API\Program.cs
+D:\AppLocal\LocalMarket\LocalMarket.API\obj\Debug\net10.0\LocalMarket.API.GlobalUsings.g.cs
+D:\AppLocal\LocalMarket\LocalMarket.API\obj\Debug\net10.0\.NETCoreApp,Version=v10.0.AssemblyAttributes.cs
+D:\AppLocal\LocalMarket\LocalMarket.API\obj\Debug\net10.0\LocalMarket.API.AssemblyInfo.cs
+D:\AppLocal\LocalMarket\LocalMarket.API\obj\Debug\net10.0\LocalMarket.API.MvcApplicationPartsAssemblyInfo.cs
+D:\AppLocal\LocalMarket\LocalMarket.API\appsettings.Development.json
+D:\AppLocal\LocalMarket\LocalMarket.API\appsettings.json
+D:\AppLocal\LocalMarket\LocalMarket.API\.env
+D:\AppLocal\LocalMarket\LocalMarket.API\LocalMarket.API.http
+D:\AppLocal\LocalMarket\LocalMarket.API\Properties\launchSettings.json

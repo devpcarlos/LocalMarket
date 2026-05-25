@@ -27,8 +27,10 @@ namespace LocalMarket.Infrastructure.Repositories
                 query = query.Where(b => b.City == city);
 
             if (!string.IsNullOrWhiteSpace(search))
-                query = query.Where(b => b.Name.ToLower()
-                .Contains(search.ToLower()));
+            {
+                var searchLower = search.ToLower();
+                query = query.Where(b => b.Name.ToLower().Contains(searchLower));
+            }
 
             return await query.ToListAsync();
         }

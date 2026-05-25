@@ -9,7 +9,7 @@ namespace LocalMarket.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ProductController : Controller
+    public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
 
@@ -23,7 +23,7 @@ namespace LocalMarket.API.Controllers
         public async Task<IActionResult> GetByBusiness(Guid businessId)
         {
             var result = await _productService.GetByBusinessIdAsync(businessId);
-            return Ok(ApiResponseDto<List<ProductDto>>.Ok(result));
+            return Ok(ApiResponseDto<List<ProductDto>>.OK(result));
         }
 
         // Público
@@ -31,7 +31,7 @@ namespace LocalMarket.API.Controllers
         public async Task<IActionResult> GetById(Guid id)
         {
             var result = await _productService.GetByIdAsync(id);
-            return Ok(ApiResponseDto<ProductDto>.Ok(result));
+            return Ok(ApiResponseDto<ProductDto>.OK(result));
         }
 
         // Solo dueño del negocio
@@ -43,7 +43,7 @@ namespace LocalMarket.API.Controllers
             var userId = GetUserId();
             var result = await _productService.CreateAsync(userId, businessId, dto);
             return Created($"api/product/{result.Id}",
-                ApiResponseDto<ProductDto>.Ok(result, "Product created successfully"));
+                ApiResponseDto<ProductDto>.OK(result, "Product created successfully"));
         }
 
         // Solo dueño del negocio
@@ -54,7 +54,7 @@ namespace LocalMarket.API.Controllers
         {
             var userId = GetUserId();
             var result = await _productService.UpdateAsync(userId, id, dto);
-            return Ok(ApiResponseDto<ProductDto>.Ok(result, "Product updated successfully"));
+            return Ok(ApiResponseDto<ProductDto>.OK(result, "Product updated successfully"));
         }
 
         // Solo dueño del negocio
@@ -64,7 +64,7 @@ namespace LocalMarket.API.Controllers
         {
             var userId = GetUserId();
             await _productService.DeleteAsync(userId, id);
-            return Ok(ApiResponseDto<string?>.Ok(null, "Product deleted successfully"));
+            return Ok(ApiResponseDto<string?>.OK(null, "Product deleted successfully"));
         }
 
         // Categorías
@@ -73,7 +73,7 @@ namespace LocalMarket.API.Controllers
         {
             var result = await _productService
                 .GetCategoriesByBusinessIdAsync(businessId);
-            return Ok(ApiResponseDto<List<ProductCategoryDto>>.Ok(result));
+            return Ok(ApiResponseDto<List<ProductCategoryDto>>.OK(result));
         }
 
         [Authorize(Roles = "business")]
@@ -85,7 +85,7 @@ namespace LocalMarket.API.Controllers
             var result = await _productService
                 .CreateCategoryAsync(userId, businessId, dto);
             return Created($"api/product/categories/{result.Id}",
-                ApiResponseDto<ProductCategoryDto>.Ok(
+                ApiResponseDto<ProductCategoryDto>.OK(
                     result, "Category created successfully"));
         }
 
@@ -95,7 +95,7 @@ namespace LocalMarket.API.Controllers
         {
             var userId = GetUserId();
             await _productService.DeleteCategoryAsync(userId, categoryId);
-            return Ok(ApiResponseDto<string?>.Ok(null, "Category deleted successfully"));
+            return Ok(ApiResponseDto<string?>.OK(null, "Category deleted successfully"));
         }
 
         private Guid GetUserId()

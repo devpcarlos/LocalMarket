@@ -8,6 +8,7 @@ namespace LocalMarket.Core.Interfaces
     {
         Task<List<ProductCategory>> GetByBusinessIdAsync(Guid businessId);
         Task<ProductCategory> CreateAsync(ProductCategory category);
+        Task<ProductCategory?> GetByIdAsync(Guid id);
         Task DeleteAsync(Guid id);
     }
 }

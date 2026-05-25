@@ -1,6 +1,8 @@
 ﻿
 using LocalMarket.Core.DTos.Common;
+using LocalMarket.Core.Exception;
 using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
 namespace LocalMarket.API.Middleware
@@ -15,39 +17,53 @@ namespace LocalMarket.API.Middleware
         }
 
         public async ValueTask<bool> TryHandleAsync(
-            HttpContext context, 
-            Exception ex, CancellationToken cancellationToken)
+            HttpContext httpContext, 
+            Exception exception, 
+            CancellationToken cancellationToken)
         {
-            var (statusCode, message) = ex switch
+            var (statusCode, title, type) = exception switch
             {
+                EmailNotFoundException =>
+                    (HttpStatusCode.NotFound, "Email not found",
+                    "https://localmarket.com/email-not-found"),
+
                 UnauthorizedAccessException =>
-                    (HttpStatusCode.Unauthorized, "Unauthorized"),
+                    (HttpStatusCode.Unauthorized, "Unauthorized",
+                    "https://localmarket.com/unauthorized"),
 
                 InvalidOperationException =>
-                    (HttpStatusCode.BadRequest, ex.Message),
+                    (HttpStatusCode.BadRequest, "Invalid operation",
+                    "https://localmarket.com/invalid-operation"),
 
                 KeyNotFoundException =>
-                    (HttpStatusCode.NotFound, ex.Message),
+                    (HttpStatusCode.NotFound, "Key not found",
+                    "https://localmarket.com/key-not-found"),
 
-                _ => (HttpStatusCode.InternalServerError, "An unexpected error occurred")
+                    _ => (HttpStatusCode.InternalServerError, "Internal server error",
+                    "https://localmarket.com/internal-server-error")
+
             };
 
             if (statusCode == HttpStatusCode.InternalServerError)
-                _logger.LogError(ex, "Unhandled exception {Method} {Path}",
-                    context.Request.Method, context.Request.Path);
+                _logger.LogError(exception, "Unhandled exception {Method} {Path}",
+                    httpContext.Request.Method, httpContext.Request.Path);
             else
                 _logger.LogWarning("{Type} {Method} {Path}: {Message}",
-                    ex.GetType().Name, context.Request.Method,
-                    context.Request.Path, ex.Message);
+                    exception.GetType().Name, httpContext.Request.Method,
+                    httpContext.Request.Path, exception.Message);
 
-            context.Response.ContentType = "application/json";
-            context.Response.StatusCode = (int)statusCode;
-            
-            await context.Response.WriteAsJsonAsync(
-                ApiResponseDto<string>.Fail(message),
-                cancellationToken
-                );
-
+            var problem = new ProblemDetails
+            {
+                Status = (int)statusCode,
+                Title = title,
+                Type = type,
+                Detail = statusCode == HttpStatusCode.InternalServerError
+                    ? "An unexpected error occurred. Please try again later."
+                    : exception.Message,
+                    Instance = httpContext.Request.Path
+            };
+            httpContext.Response.StatusCode = (int)statusCode;
+            await httpContext.Response.WriteAsJsonAsync(problem, cancellationToken);
             return true;
         }
     }

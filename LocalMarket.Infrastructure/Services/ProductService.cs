@@ -63,8 +63,7 @@ namespace LocalMarket.Infrastructure.Services
                 ?? throw new KeyNotFoundException("Business not found");
 
             if (business.UserId != userId)
-                throw new UnauthorizedAccessException(
-                    "You are not the owner of this business");
+                throw new UnauthorizedAccessException(nameof(userId));
 
             dto.Adapt(product);
             var updated = await _productRepository.UpdateAsync(product);
@@ -115,10 +114,7 @@ namespace LocalMarket.Infrastructure.Services
 
         public async Task DeleteCategoryAsync(Guid userId, Guid categoryId)
         {
-            var categories = await _productCategoryRepository
-                .GetByBusinessIdAsync(Guid.Empty);
-
-            var category = categories.FirstOrDefault(c => c.Id == categoryId)
+            var category = await _productCategoryRepository.GetByIdAsync(categoryId)
                 ?? throw new KeyNotFoundException($"Category {categoryId} not found");
 
             var business = await _businessRepository.GetByIdAsync(category.BusinessId)
