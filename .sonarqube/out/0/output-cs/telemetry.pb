@@ -1,1 +1,0 @@
-MR@D:\AppLocal\LocalMarket\LocalMarket.Core\LocalMarket.Core.csprojòCSharp14

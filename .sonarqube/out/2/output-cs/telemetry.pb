@@ -1,1 +1,0 @@
-KR>D:\AppLocal\LocalMarket\LocalMarket.API\LocalMarket.API.csprojòCSharp14

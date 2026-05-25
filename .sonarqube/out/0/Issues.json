@@ -11,7 +11,77 @@
         "language": "es-MX"
       },
       "results": [
-      ]
+        {
+          "ruleId": "CS0246",
+          "level": "error",
+          "message": "El nombre del tipo o del espacio de nombres 'AddFavoriteDto' no se encontró (¿falta una directiva using o una referencia de ensamblado?)",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/AppLocal/LocalMarket/LocalMarket.Core/Interfaces/IFavoriteService.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 49,
+                  "endLine": 9,
+                  "endColumn": 63
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CS0246",
+          "level": "error",
+          "message": "El nombre del tipo o del espacio de nombres 'CreateProductDto' no se encontró (¿falta una directiva using o una referencia de ensamblado?)",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/AppLocal/LocalMarket/LocalMarket.Core/Interfaces/IProductService.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 68,
+                  "endLine": 10,
+                  "endColumn": 84
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CS0246",
+          "level": "error",
+          "message": "El nombre del tipo o del espacio de nombres 'UpdateProductDto' no se encontró (¿falta una directiva using o una referencia de ensamblado?)",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/AppLocal/LocalMarket/LocalMarket.Core/Interfaces/IProductService.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 67,
+                  "endLine": 11,
+                  "endColumn": 83
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "rules": {
+        "CS0246": {
+          "id": "CS0246",
+          "defaultLevel": "error",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS0246)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry",
+              "NotConfigurable"
+            ]
+          }
+        }
+      }
     }
   ]
 }

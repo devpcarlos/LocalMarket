@@ -1,10 +1,13 @@
-﻿namespace LocalMarket.Core.Entities
+﻿
+using System.ComponentModel.DataAnnotations;
+
+namespace LocalMarket.Core.DTos.Schedule
 {
-   public class Schedule
+    public class RequestScheduleDto
     {
-        public Guid Id { get; set; } = Guid.NewGuid();
-        public Guid BusinessId { get; set; }
+        [Range(1, 7, ErrorMessage = "DayOfWeek must be between 1 and 7")]
         public int DayOfWeek { get; set; }
+
         public TimeOnly? OpeningTime { get; set; }
         public TimeOnly? ClosingTime { get; set; }
         public bool IsClosed { get; set; } = false;

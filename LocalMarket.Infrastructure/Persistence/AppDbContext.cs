@@ -31,7 +31,8 @@ namespace LocalMarket.Infrastructure.Persistence
                 e.Property(x => x.Email).HasMaxLength(150).IsRequired();
                 e.HasIndex(x => x.Email).IsUnique();
                 e.Property(x => x.Phone).HasMaxLength(20);
-                e.Property(x => x.Role).HasMaxLength(20).HasDefaultValue("client");
+                e.Property(x => x.Role).HasMaxLength(20)
+                .HasDefaultValue("client").HasConversion<string>();
                 e.Property(x => x.PasswordHash).IsRequired();
                 e.Property(x => x.CreatedAt).HasDefaultValueSql("NOW()");
             });
@@ -82,7 +83,9 @@ namespace LocalMarket.Infrastructure.Persistence
                 e.Property(x => x.Name).HasMaxLength(150).IsRequired();
                 e.Property(x => x.Price).HasPrecision(12, 2);
                 e.Property(x => x.SalePrice).HasPrecision(12, 2);
-                e.Property(x => x.PhotoUrls).HasColumnType("text[]");
+                e.Property(x => x.PhotoUrls).HasColumnType("text[]").HasConversion(
+                    v=> v.ToArray(),
+                    v => v.ToList());
                 e.Property(x => x.IsAvailable).HasDefaultValue(true);
                 e.Property(x => x.CreatedAt).HasDefaultValueSql("NOW()");
                 e.HasOne<Business>().WithMany().HasForeignKey(x => x.BusinessId).OnDelete(DeleteBehavior.Cascade);
@@ -131,7 +134,7 @@ namespace LocalMarket.Infrastructure.Persistence
                 e.HasIndex(x => new { x.UserId, x.BusinessId }).IsUnique();
                 e.Property(x => x.CreatedAt).HasDefaultValueSql("NOW()");
                 e.HasOne<User>().WithMany().HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.Cascade);
-                e.HasOne<Business>().WithMany().HasForeignKey(x => x.BusinessId).OnDelete(DeleteBehavior.Cascade);
+                e.HasOne<Business>().WithMany().HasForeignKey(x => x.BusinessId).OnDelete(DeleteBehavior.Restrict);
             });
 
             // Review

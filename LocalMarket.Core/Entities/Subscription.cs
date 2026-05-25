@@ -6,7 +6,7 @@ namespace LocalMarket.Core.Entities
 {
     public class Subscription
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
         public Guid BusinessId { get; set; }
         public string Plan { get; set; } = string.Empty;
         public decimal MonthlyPrice { get; set; }
@@ -16,6 +16,6 @@ namespace LocalMarket.Core.Entities
         public string? PaymentDescription { get; set; }
         public Guid? ActivatedBy { get; set; }
         public DateTime? ActivatedAt { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }

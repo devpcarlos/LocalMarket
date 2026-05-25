@@ -1,1 +1,0 @@
-aRTD:\AppLocal\LocalMarket\LocalMarket.Infrastructure\LocalMarket.Infrastructure.csprojòCSharp14

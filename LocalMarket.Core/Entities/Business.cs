@@ -2,7 +2,7 @@
 {
     public class Business
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
         public Guid UserId { get; set; }
         public Guid CategoryId { get; set; }
         public string Name { get; set; } = string.Empty;
@@ -15,6 +15,6 @@
         public string? LogoUrl { get; set; }
         public bool IsActive { get; set; } = true;
         public bool IsVerified { get; set; } = false;
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }
