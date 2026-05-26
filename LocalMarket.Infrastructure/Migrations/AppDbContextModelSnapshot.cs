@@ -29,7 +29,8 @@ namespace LocalMarket.Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("Address")
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<Guid>("CategoryId")
                         .HasColumnType("uuid");
@@ -44,7 +45,8 @@ namespace LocalMarket.Infrastructure.Migrations
                         .HasDefaultValueSql("NOW()");
 
                     b.Property<string>("Description")
-                        .HasColumnType("text");
+                        .HasMaxLength(1000)
+                        .HasColumnType("character varying(1000)");
 
                     b.Property<bool>("HasWhatsapp")
                         .ValueGeneratedOnAdd()
@@ -431,7 +433,8 @@ namespace LocalMarket.Infrastructure.Migrations
                         .HasDefaultValueSql("NOW()");
 
                     b.Property<int>("Rating")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasAnnotation("CheckConstraint", "Rating >= 1 AND Rating <= 5");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid");
@@ -512,10 +515,9 @@ namespace LocalMarket.Infrastructure.Migrations
                     b.Property<string>("PaymentDescription")
                         .HasColumnType("text");
 
-                    b.Property<string>("Plan")
-                        .IsRequired()
+                    b.Property<int>("Plan")
                         .HasMaxLength(20)
-                        .HasColumnType("character varying(20)");
+                        .HasColumnType("integer");
 
                     b.Property<DateOnly>("StartDate")
                         .HasColumnType("date");
@@ -561,7 +563,7 @@ namespace LocalMarket.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(20)
                         .HasColumnType("character varying(20)")
-                        .HasDefaultValue("client");
+                        .HasDefaultValue("Client");
 
                     b.HasKey("Id");
 
@@ -576,7 +578,7 @@ namespace LocalMarket.Infrastructure.Migrations
                     b.HasOne("LocalMarket.Core.Entities.BusinessCategory", null)
                         .WithMany()
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("LocalMarket.Core.Entities.User", null)

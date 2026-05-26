@@ -4,6 +4,8 @@ using LocalMarket.Core.Interfaces;
 using LocalMarket.Core.Entities;
 using System.Security.Cryptography;
 using System.Text;
+using LocalMarket.Core.Enums;
+using LocalMarket.Infrastructure.Utils;
 
 namespace LocalMarket.Infrastructure.Services
 {
@@ -36,8 +38,9 @@ namespace LocalMarket.Infrastructure.Services
                 throw new InvalidOperationException("Email already in use");
 
             var user = request.Adapt<User>();
+            user.Role = Enum.Parse<UserRole>(request.Role, ignoreCase: true);
             user.Id = Guid.NewGuid();
-            user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password);
+            user.PasswordHash = Encript.EncriptPassword(request.Password);
 
             await _userRepository.CreateAsync(user);
 
@@ -46,10 +49,11 @@ namespace LocalMarket.Infrastructure.Services
 
         public async Task<AuthResponseDto> LoginAsync(LoginRequestDto request)
         {
-            var user = await _userRepository.GetByEmailAsync(request.Email) ??
-                throw new UnauthorizedAccessException("Invalid credentials");
+            var user = await _userRepository.GetByEmailAsync(
+              request.Email.ToLowerInvariant().Trim())
+                ?? throw new UnauthorizedAccessException("Invalid email or password");
 
-            if (!BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
+            if ( !Encript.VerifyPassword(request.Password, user.PasswordHash))
                 throw new UnauthorizedAccessException("Invalid credentials");
 
             return await BuildAuthResponse(user, ipAddress: null);

@@ -24,7 +24,7 @@ namespace LocalMarket.Infrastructure.Services
             return favorites.Adapt<List<FavoriteDto>>();
         }
 
-        public async Task<FavoriteDto> AddAsync(Guid userId, FavoriteDto dto)
+        public async Task<FavoriteDto> AddAsync(Guid userId, AddFavoriteDto dto)
         {
             _ = await _businessRepository.GetByIdAsync(dto.BusinessId)
                ?? throw new KeyNotFoundException($"Business {dto.BusinessId} not found");
@@ -36,8 +36,10 @@ namespace LocalMarket.Infrastructure.Services
                 throw new InvalidOperationException("Business is already in favorites");
             
             var favorite = dto.Adapt<Favorite>();
-            await _favoriteRepository.CreateAsync(favorite);
+            favorite.UserId = userId;
+            favorite.Id = Guid.NewGuid();
 
+            await _favoriteRepository.CreateAsync(favorite);
             return favorite.Adapt<FavoriteDto>();
         }
 
@@ -51,7 +53,7 @@ namespace LocalMarket.Infrastructure.Services
             if (favorite.UserId != userId)
                 throw new UnauthorizedAccessException("You cannot remove this favorite");
 
-            await _favoriteRepository.DeleteAsync(favorite.Id);
+            await _favoriteRepository.DeleteAsync(favorite);
         }
     }
 }

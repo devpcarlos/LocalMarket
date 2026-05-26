@@ -8,6 +8,6 @@
         public string Content { get; set; } = string.Empty;
         public string Type { get; set; } = "text";
         public bool IsRead { get; set; } = false;
-        public DateTime SentAt { get; set; } = DateTime.Now;
+        public DateTime SentAt { get; set; } = DateTime.UtcNow;
     }
 }

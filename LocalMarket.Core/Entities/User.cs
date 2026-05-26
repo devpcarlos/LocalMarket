@@ -1,4 +1,6 @@
-﻿namespace LocalMarket.Core.Entities
+﻿using LocalMarket.Core.Enums;
+
+namespace LocalMarket.Core.Entities
 {
     public class User
     {
@@ -7,7 +9,7 @@
         public string Email { get; set; } = string.Empty;
         public string PasswordHash { get; set; } = string.Empty;
         public string? Phone { get; set; }
-        public string Role { get; set; } = "client";
+        public UserRole Role { get; set; } = UserRole.Client;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }

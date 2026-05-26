@@ -9,7 +9,7 @@ namespace LocalMarket.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ProductController : ControllerBase
+    public class ProductController : BaseController
     {
         private readonly IProductService _productService;
 
@@ -35,7 +35,7 @@ namespace LocalMarket.API.Controllers
         }
 
         // Solo dueño del negocio
-        [Authorize(Roles = "business")]
+        [Authorize(Roles = "BusinessOwner")]
         [HttpPost("business/{businessId:guid}")]
         public async Task<IActionResult> Create(
             Guid businessId, [FromBody] RequestProductDto dto)
@@ -47,7 +47,7 @@ namespace LocalMarket.API.Controllers
         }
 
         // Solo dueño del negocio
-        [Authorize(Roles = "business")]
+        [Authorize(Roles = "BusinessOwner")]
         [HttpPut("{id:guid}")]
         public async Task<IActionResult> Update(
             Guid id, [FromBody]  RequestProductDto dto)
@@ -58,7 +58,7 @@ namespace LocalMarket.API.Controllers
         }
 
         // Solo dueño del negocio
-        [Authorize(Roles = "business")]
+        [Authorize(Roles = "BusinessOwner")]
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> Delete(Guid id)
         {
@@ -76,7 +76,7 @@ namespace LocalMarket.API.Controllers
             return Ok(ApiResponseDto<List<ProductCategoryDto>>.OK(result));
         }
 
-        [Authorize(Roles = "business")]
+        [Authorize(Roles = "BusinessOwner")]
         [HttpPost("categories/business/{businessId:guid}")]
         public async Task<IActionResult> CreateCategory(
             Guid businessId, [FromBody] CreateProductCategoryDto dto)
@@ -89,22 +89,13 @@ namespace LocalMarket.API.Controllers
                     result, "Category created successfully"));
         }
 
-        [Authorize(Roles = "business")]
+        [Authorize(Roles = "BusinessOwner")]
         [HttpDelete("categories/{categoryId:guid}")]
         public async Task<IActionResult> DeleteCategory(Guid categoryId)
         {
             var userId = GetUserId();
             await _productService.DeleteCategoryAsync(userId, categoryId);
             return Ok(ApiResponseDto<string?>.OK(null, "Category deleted successfully"));
-        }
-
-        private Guid GetUserId()
-        {
-            var claim = User.FindFirst(ClaimTypes.NameIdentifier)
-                ?? User.FindFirst("sub")
-                ?? throw new UnauthorizedAccessException("User not authenticated");
-
-            return Guid.Parse(claim.Value);
         }
     }
 }

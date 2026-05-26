@@ -26,27 +26,36 @@ namespace LocalMarket.Infrastructure.Services
 
         public async Task<List<ScheduleDto>> UpsertAsync(Guid userId, Guid businessId, ScheduleListDto dto)
         {
+            // 1. Validaciones de negocio iniciales
             var business = await _businessRepository.GetByIdAsync(businessId)
                ?? throw new KeyNotFoundException($"Business {businessId} not found");
 
             if (business.UserId != userId)
-                throw new UnauthorizedAccessException(
-                    "You are not the owner of this business");
+                throw new UnauthorizedAccessException("You are not the owner of this business");
 
-            // Reemplazar todos los horarios del negocio
-            await _scheduleRepository.DeleteByBusinessIdAsync(businessId);
-
-            var schedule = dto.Schedules.Adapt<List<Schedule>>();
-
-            //Asignar el BusinessId a cada horario mapeado
-            foreach (var schedules in schedule)
+            // 🛡️ Validación de consistencia de horas (Cierre > Apertura)
+            foreach (var s in dto.Schedules)
             {
-                schedules.BusinessId = businessId;
+                if (!s.IsClosed && s.ClosingTime <= s.OpeningTime)
+                    throw new InvalidOperationException($"Closing time must be after opening time for day {s.DayOfWeek}");
             }
 
-            await _scheduleRepository.SaveRangeAsync(schedule);
+            // 2. Ejecutar operaciones en memoria (Preparar el lote)
+            await _scheduleRepository.DeleteByBusinessIdAsync(businessId); // Pasó al estado "Deleted" en EF
 
-            return schedule.Adapt<List<ScheduleDto>>();
+            var schedulesEntities = dto.Schedules.Adapt<List<Schedule>>();
+            foreach (var schedule in schedulesEntities)
+            {
+                schedule.BusinessId = businessId; // Asignar relación
+            }
+            await _scheduleRepository.SaveRangeAsync(schedulesEntities); // Pasó al estado "Added" en EF
+
+            // 3. ENVIÁ EN UNA SOLA TRANSACCIÓN AUTOMÁTICA
+            // Entity Framework envolverá el DeleteRange y el AddRange en un único bloque de SQL.
+            // Si la inserción llegara a fallar por cualquier motivo, el borrado jamás ocurrirá en la BD.
+            await _scheduleRepository.SaveChangesAsync();
+
+            return schedulesEntities.Adapt<List<ScheduleDto>>();
         }
     }
 }

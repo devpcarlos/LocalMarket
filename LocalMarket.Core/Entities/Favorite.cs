@@ -7,6 +7,6 @@ namespace LocalMarket.Core.Entities
         public Guid Id { get; set; } = Guid.NewGuid();
         public Guid UserId { get; set; }
         public Guid BusinessId { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -9,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LocalMarket.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InitialCleanStructure : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -37,7 +36,7 @@ namespace LocalMarket.Infrastructure.Migrations
                     Email = table.Column<string>(type: "character varying(150)", maxLength: 150, nullable: false),
                     PasswordHash = table.Column<string>(type: "text", nullable: false),
                     Phone = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: true),
-                    Role = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false, defaultValue: "client"),
+                    Role = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false, defaultValue: "Client"),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "NOW()")
                 },
                 constraints: table =>
@@ -53,9 +52,9 @@ namespace LocalMarket.Infrastructure.Migrations
                     UserId = table.Column<Guid>(type: "uuid", nullable: false),
                     CategoryId = table.Column<Guid>(type: "uuid", nullable: false),
                     Name = table.Column<string>(type: "character varying(150)", maxLength: 150, nullable: false),
-                    Description = table.Column<string>(type: "text", nullable: true),
+                    Description = table.Column<string>(type: "character varying(1000)", maxLength: 1000, nullable: true),
                     Nit = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: true),
-                    Address = table.Column<string>(type: "text", nullable: true),
+                    Address = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: true),
                     City = table.Column<string>(type: "character varying(80)", maxLength: 80, nullable: true),
                     Phone = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: true),
                     HasWhatsapp = table.Column<bool>(type: "boolean", nullable: false, defaultValue: true),
@@ -72,7 +71,7 @@ namespace LocalMarket.Infrastructure.Migrations
                         column: x => x.CategoryId,
                         principalTable: "business_categories",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_businesses_users_UserId",
                         column: x => x.UserId,
@@ -149,7 +148,7 @@ namespace LocalMarket.Infrastructure.Migrations
                         column: x => x.BusinessId,
                         principalTable: "businesses",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_favorites_users_UserId",
                         column: x => x.UserId,
@@ -235,7 +234,7 @@ namespace LocalMarket.Infrastructure.Migrations
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     BusinessId = table.Column<Guid>(type: "uuid", nullable: false),
-                    Plan = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false),
+                    Plan = table.Column<int>(type: "integer", maxLength: 20, nullable: false),
                     MonthlyPrice = table.Column<decimal>(type: "numeric(12,2)", precision: 12, scale: 2, nullable: false),
                     StartDate = table.Column<DateOnly>(type: "date", nullable: false),
                     EndDate = table.Column<DateOnly>(type: "date", nullable: false),
@@ -296,7 +295,7 @@ namespace LocalMarket.Infrastructure.Migrations
                     Description = table.Column<string>(type: "text", nullable: true),
                     Price = table.Column<decimal>(type: "numeric(12,2)", precision: 12, scale: 2, nullable: false),
                     SalePrice = table.Column<decimal>(type: "numeric(12,2)", precision: 12, scale: 2, nullable: true),
-                    PhotoUrls = table.Column<List<string>>(type: "text[]", nullable: false),
+                    PhotoUrls = table.Column<string[]>(type: "text[]", nullable: false),
                     IsAvailable = table.Column<bool>(type: "boolean", nullable: false, defaultValue: true),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "NOW()")
                 },

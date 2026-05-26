@@ -8,8 +8,6 @@ using System.Security.Cryptography;
 
 namespace LocalMarket.Infrastructure.Security
 {
-
-
     public class JwtTokenProvider : IJwtService
     {
         private readonly string _key;
@@ -37,7 +35,7 @@ namespace LocalMarket.Infrastructure.Security
             new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
             new Claim(JwtRegisteredClaimNames.Email, user.Email),
             new Claim(ClaimTypes.Name, user.Name),
-            new Claim(ClaimTypes.Role, user.Role),
+            new Claim(ClaimTypes.Role, user.Role.ToString()),
             new Claim(JwtRegisteredClaimNames.Jti, jwtId),
             new Claim(JwtRegisteredClaimNames.Iat,
                 DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString(),
@@ -63,7 +61,8 @@ namespace LocalMarket.Infrastructure.Security
             var bytes = RandomNumberGenerator.GetBytes(64);
             var rawToken = Convert.ToBase64String(bytes);
             var tokenHash = Convert.ToHexString(
-                SHA256.HashData(Encoding.UTF8.GetBytes(rawToken)));
+                SHA256.HashData(Encoding.UTF8.GetBytes(rawToken)))
+                .ToLowerInvariant();
             return (rawToken, tokenHash);
         }
 

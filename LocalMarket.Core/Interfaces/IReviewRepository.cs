@@ -9,6 +9,6 @@ namespace LocalMarket.Core.Interfaces
         Task<Review?> GetByUserAndBusinessAsync(Guid userId, Guid businessId);
         Task<Review> CreateAsync(Review review);
         Task<Review> UpdateAsync(Review review);
-        Task DeleteAsync(Guid id);
+        Task DeleteAsync(Review review);
     }
 }

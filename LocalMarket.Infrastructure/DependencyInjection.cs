@@ -26,23 +26,33 @@ namespace LocalMarket.Infrastructure
             // CONFIGURACIÓN DE MAPSTER
 
             var config = TypeAdapterConfig.GlobalSettings;
+
             config.Scan(Assembly.GetExecutingAssembly());
             services.AddSingleton(config);
 
-            services.AddScoped<IMapper, Mapper>();
+            services.AddScoped<IMapper, ServiceMapper>();
 
             // Servicios y 
             services.AddSingleton<IJwtService, JwtTokenProvider>();
-            services.AddScoped<IBusinessService, BusinessService>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IBusinessService, BusinessService>();
+            services.AddScoped<IBusinessCategoryService, BusinessCategoryService>();
             services.AddScoped<IProductService, ProductService>();
-            services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+            services.AddScoped<IScheduleService, ScheduleService>();
+            services.AddScoped<IFavoriteService, FavoriteService>();
+            services.AddScoped<IReviewService, ReviewService>();
 
             //Repositorios
+
+            services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IBusinessRepository, BusinessRepository>();
+            services.AddScoped<IBusinessCategoryRepository, BusinessCategoryRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IProductCategoryRepository, ProductCategoryRepository>();
+            services.AddScoped<IScheduleRepository, ScheduleRepository>();
+            services.AddScoped<IFavoriteRepository, FavoriteRepository>();
+            services.AddScoped<IReviewRepository, ReviewRepository>();
 
             return services;
             }

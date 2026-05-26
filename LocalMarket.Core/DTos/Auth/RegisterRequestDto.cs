@@ -8,8 +8,12 @@ namespace LocalMarket.Core.DTos.Auth
         public string Name { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "El correo es obligatorio")]
-        //[EmailAddress(ErrorMessage = "Correo no válido")]
+        [EmailAddress(ErrorMessage = "Correo no válido")]
         public string Email { get; set; } = string.Empty;
+
+        [Required]
+        [RegularExpression("^(client | businessOwner)$", ErrorMessage = "Los roles válidos son 'client' o 'business'")]
+        public string Role { get; set; } = "Client";
 
         [Phone(ErrorMessage = "Teléfono no válido")]
         public string? Phone { get; set; }

@@ -39,7 +39,10 @@ namespace LocalMarket.API.Middleware
                     (HttpStatusCode.NotFound, "Key not found",
                     "https://localmarket.com/key-not-found"),
 
-                    _ => (HttpStatusCode.InternalServerError, "Internal server error",
+                    ArgumentException or ArgumentNullException =>(HttpStatusCode
+                    .BadRequest, "Bad request", "https://localmarket.com/bad-request"),
+
+                _ => (HttpStatusCode.InternalServerError, "Internal server error",
                     "https://localmarket.com/internal-server-error")
 
             };

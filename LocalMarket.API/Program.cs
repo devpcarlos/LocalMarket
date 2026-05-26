@@ -22,8 +22,12 @@ var jwtKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY")
 var jwtIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER")
     ?? throw new InvalidOperationException("JWT_ISSUER no configurado");
 
+
+builder.Services.AddInfrastructure();
+
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
+
 builder.Services.AddControllers()
     .ConfigureApiBehaviorOptions(options =>
     {
@@ -65,7 +69,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 builder.Services.AddAuthorization();
-builder.Services.AddInfrastructure();
 
 //pipeline
 // CORS para permitir conexión desde MAUI
@@ -92,6 +95,8 @@ using (var scope = app.Services.CreateScope())
      await db.Database.MigrateAsync();
 }
 
+app.UseExceptionHandler();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -99,8 +104,6 @@ if (app.Environment.IsDevelopment())
     app.MapScalarApiReference();
 }
 
-
-app.UseExceptionHandler();
 app.UseHttpsRedirection();
 app.UseCors("LocalMarketPolicy");
 app.UseAuthentication();

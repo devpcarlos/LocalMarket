@@ -7,6 +7,6 @@ namespace LocalMarket.Core.Interfaces
         Task<List<Favorite>> GetByUserIdAsync(Guid userId);
         Task<Favorite?> GetByUserAndBusinessAsync(Guid userId, Guid businessId);
         Task<Favorite> CreateAsync(Favorite favorite);
-        Task DeleteAsync(Guid id);
+        Task DeleteAsync(Favorite favorite);
     }
 }

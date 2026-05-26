@@ -1,0 +1,184 @@
+{
+  "scannerProperties": [
+    {
+      "key": "sonar.scanner.app",
+      "value": "ScannerMSBuild"
+    },
+    {
+      "key": "sonar.scanner.appVersion",
+      "value": "11.2.1"
+    },
+    {
+      "key": "sonar.scanner.bootstrapStartTime",
+      "value": "1779761046000"
+    },
+    {
+      "key": "sonar.projectKey",
+      "value": "localmarketcore"
+    },
+    {
+      "key": "sonar.working.directory",
+      "value": "D:\\AppLocal\\LocalMarket\\.sonarqube\\out\\.sonar"
+    },
+    {
+      "key": "sonar.projectBaseDir",
+      "value": "D:\\AppLocal\\LocalMarket"
+    },
+    {
+      "key": "sonar.pullrequest.cache.basepath",
+      "value": "D:\\AppLocal\\LocalMarket"
+    },
+    {
+      "key": "sonar.sources",
+      "value": "D:\\AppLocal\\LocalMarket\\.vs\\LocalMarket.slnx\\config\\applicationhost.config,D:\\AppLocal\\LocalMarket\\.vs\\LocalMarket.slnx\\v18\\DocumentLayout.backup.json,D:\\AppLocal\\LocalMarket\\.vs\\LocalMarket.slnx\\v18\\DocumentLayout.json,D:\\AppLocal\\LocalMarket\\docker-compose.sonar.yml,D:\\AppLocal\\LocalMarket\\docker-compose.yml"
+    },
+    {
+      "key": "sonar.tests",
+      "value": ""
+    },
+    {
+      "key": "sonar.modules",
+      "value": "CF751814-31C9-0B9C-EF10-1AB9F4E769D4,1D57FC9D-E41F-901C-74B3-D76BDBD505E2,16BA61D7-0C6A-F8FF-AA70-B6BF66E27CBC"
+    },
+    {
+      "key": "CF751814-31C9-0B9C-EF10-1AB9F4E769D4.sonar.projectKey",
+      "value": "localmarketcore:CF751814-31C9-0B9C-EF10-1AB9F4E769D4"
+    },
+    {
+      "key": "CF751814-31C9-0B9C-EF10-1AB9F4E769D4.sonar.projectName",
+      "value": "LocalMarket.Core"
+    },
+    {
+      "key": "CF751814-31C9-0B9C-EF10-1AB9F4E769D4.sonar.projectBaseDir",
+      "value": "D:\\AppLocal\\LocalMarket\\LocalMarket.Core"
+    },
+    {
+      "key": "CF751814-31C9-0B9C-EF10-1AB9F4E769D4.sonar.working.directory",
+      "value": "D:\\AppLocal\\LocalMarket\\.sonarqube\\out\\.sonar\\mod0"
+    },
+    {
+      "key": "CF751814-31C9-0B9C-EF10-1AB9F4E769D4.sonar.sourceEncoding",
+      "value": "utf-8"
+    },
+    {
+      "key": "CF751814-31C9-0B9C-EF10-1AB9F4E769D4.sonar.tests",
+      "value": ""
+    },
+    {
+      "key": "CF751814-31C9-0B9C-EF10-1AB9F4E769D4.sonar.sources",
+      "value": "D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\DTos\\Auth\\AuthResponseDto.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\DTos\\Auth\\LoginRequestDto.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\DTos\\Auth\\LogoutRequestDto.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\DTos\\Auth\\RecoverPasswordRequestDto.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\DTos\\Auth\\RefreshTokenRequestDto.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\DTos\\Auth\\RegisterRequestDto.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\DTos\\Business\\BusinessCategoryDto.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\DTos\\Business\\BusinessDto.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\DTos\\Business\\CreateBusinessDto.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\DTos\\Business\\UpdateBusinessDto.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\DTos\\Common\\ApiResponseDto.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\DTos\\Favorites\\FavoriteDto.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\DTos\\Products\\CreateProductCategoryDto.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\DTos\\Products\\ProductCategoryDto.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\DTos\\Products\\ProductDto.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\DTos\\Products\\RequestProductDto.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\DTos\\Reviews\\RequestReviewDto.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\DTos\\Reviews\\ReviewDto.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\DTos\\Schedule\\RequestScheduleDto.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\DTos\\Schedule\\ScheduleDto.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\DTos\\Schedule\\ScheduleListDto.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Entities\\Business.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Entities\\BusinessCategory.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Entities\\Conversation.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Entities\\Favorite.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Entities\\Message.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Entities\\Product.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Entities\\ProductCategory.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Entities\\RefreshToken.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Entities\\Review.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Entities\\Schedule.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Entities\\Subscription.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Entities\\User.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Enums\\SubscriptionPlan.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Enums\\UserRole.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Exception\\EmailNotFoundException.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Interfaces\\IAuthService.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Interfaces\\IBusinessCategoryRepository.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Interfaces\\IBusinessCategoryService.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Interfaces\\IBusinessRepository.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Interfaces\\IBusinessService.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Interfaces\\IFavoriteRepository.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Interfaces\\IFavoriteService.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Interfaces\\IJwtService.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Interfaces\\IProductCategoryRepository.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Interfaces\\IProductRepository.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Interfaces\\IProductService.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Interfaces\\IRefreshTokenRepository.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Interfaces\\IReviewRepository.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Interfaces\\IReviewService.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Interfaces\\IScheduleRepository.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Interfaces\\IScheduleService.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\Interfaces\\IUserRepository.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\obj\\LocalMarket.Core.csproj.nuget.dgspec.json,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\obj\\LocalMarket.csproj.nuget.dgspec.json,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\obj\\project.assets.json,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\bin\\Debug\\net10.0\\LocalMarket.Core.deps.json,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\bin\\Release\\net10.0\\LocalMarket.Core.deps.json,D:\\AppLocal\\LocalMarket\\LocalMarket.Core\\obj\\Debug\\net10.0\\LocalMarket.Core.sourcelink.json"
+    },
+    {
+      "key": "CF751814-31C9-0B9C-EF10-1AB9F4E769D4.sonar.cs.analyzer.projectOutPaths",
+      "value": "D:\\AppLocal\\LocalMarket\\.sonarqube\\out\\0"
+    },
+    {
+      "key": "CF751814-31C9-0B9C-EF10-1AB9F4E769D4.sonar.cs.roslyn.reportFilePaths",
+      "value": "D:\\AppLocal\\LocalMarket\\.sonarqube\\out\\0\\Issues.json"
+    },
+    {
+      "key": "CF751814-31C9-0B9C-EF10-1AB9F4E769D4.sonar.cs.scanner.telemetry",
+      "value": "D:\\AppLocal\\LocalMarket\\.sonarqube\\out\\0\\Telemetry.json"
+    },
+    {
+      "key": "1D57FC9D-E41F-901C-74B3-D76BDBD505E2.sonar.projectKey",
+      "value": "localmarketcore:1D57FC9D-E41F-901C-74B3-D76BDBD505E2"
+    },
+    {
+      "key": "1D57FC9D-E41F-901C-74B3-D76BDBD505E2.sonar.projectName",
+      "value": "LocalMarket.Infrastructure"
+    },
+    {
+      "key": "1D57FC9D-E41F-901C-74B3-D76BDBD505E2.sonar.projectBaseDir",
+      "value": "D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure"
+    },
+    {
+      "key": "1D57FC9D-E41F-901C-74B3-D76BDBD505E2.sonar.working.directory",
+      "value": "D:\\AppLocal\\LocalMarket\\.sonarqube\\out\\.sonar\\mod1"
+    },
+    {
+      "key": "1D57FC9D-E41F-901C-74B3-D76BDBD505E2.sonar.sourceEncoding",
+      "value": "utf-8"
+    },
+    {
+      "key": "1D57FC9D-E41F-901C-74B3-D76BDBD505E2.sonar.tests",
+      "value": ""
+    },
+    {
+      "key": "1D57FC9D-E41F-901C-74B3-D76BDBD505E2.sonar.sources",
+      "value": "D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\obj\\LocalMarket.Infrastructure.csproj.nuget.dgspec.json,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\obj\\project.assets.json,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\bin\\Debug\\net10.0\\LocalMarket.Infrastructure.deps.json,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\bin\\Debug\\net10.0\\LocalMarket.Infrastructure.runtimeconfig.json,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\bin\\Release\\net10.0\\LocalMarket.Infrastructure.deps.json,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\obj\\Debug\\net10.0\\LocalMarket.Infrastructure.sourcelink.json,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\DependencyInjection.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Mappers\\BusinessMap.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Mappers\\FavoriteMap.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Mappers\\ProductMap.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Mappers\\ReviewMap.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Mappers\\ScheduleMap.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Mappers\\UserMap.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Migrations\\20260524045312_InitialCreate.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Migrations\\20260524045312_InitialCreate.Designer.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Migrations\\20260525181639_AgregarValueComparerPhotoUrls.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Migrations\\20260525181639_AgregarValueComparerPhotoUrls.Designer.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Migrations\\AppDbContextModelSnapshot.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Persistence\\AppDbContext.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Repositories\\BusinessCategoryRepository.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Repositories\\BusinessRepository.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Repositories\\FavoriteRepository.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Repositories\\ProductCategoryRepository.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Repositories\\ProductRepository.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Repositories\\RefreshTokenRepository.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Repositories\\ReviewRepository.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Repositories\\ScheduleRepository.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Repositories\\UserRepository.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Security\\JwtTokenProvider.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Services\\AuthService.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Services\\BusinessCategoryService.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Services\\BusinessService.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Services\\FavoriteService.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Services\\ProductService.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Services\\ReviewService.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Services\\ScheduleService.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.Infrastructure\\Utils\\Encript.cs"
+    },
+    {
+      "key": "1D57FC9D-E41F-901C-74B3-D76BDBD505E2.sonar.cs.analyzer.projectOutPaths",
+      "value": "D:\\AppLocal\\LocalMarket\\.sonarqube\\out\\1"
+    },
+    {
+      "key": "1D57FC9D-E41F-901C-74B3-D76BDBD505E2.sonar.cs.roslyn.reportFilePaths",
+      "value": "D:\\AppLocal\\LocalMarket\\.sonarqube\\out\\1\\Issues.json"
+    },
+    {
+      "key": "1D57FC9D-E41F-901C-74B3-D76BDBD505E2.sonar.cs.scanner.telemetry",
+      "value": "D:\\AppLocal\\LocalMarket\\.sonarqube\\out\\1\\Telemetry.json"
+    },
+    {
+      "key": "16BA61D7-0C6A-F8FF-AA70-B6BF66E27CBC.sonar.projectKey",
+      "value": "localmarketcore:16BA61D7-0C6A-F8FF-AA70-B6BF66E27CBC"
+    },
+    {
+      "key": "16BA61D7-0C6A-F8FF-AA70-B6BF66E27CBC.sonar.projectName",
+      "value": "LocalMarket.API"
+    },
+    {
+      "key": "16BA61D7-0C6A-F8FF-AA70-B6BF66E27CBC.sonar.projectBaseDir",
+      "value": "D:\\AppLocal\\LocalMarket\\LocalMarket.API"
+    },
+    {
+      "key": "16BA61D7-0C6A-F8FF-AA70-B6BF66E27CBC.sonar.working.directory",
+      "value": "D:\\AppLocal\\LocalMarket\\.sonarqube\\out\\.sonar\\mod2"
+    },
+    {
+      "key": "16BA61D7-0C6A-F8FF-AA70-B6BF66E27CBC.sonar.sourceEncoding",
+      "value": "utf-8"
+    },
+    {
+      "key": "16BA61D7-0C6A-F8FF-AA70-B6BF66E27CBC.sonar.tests",
+      "value": ""
+    },
+    {
+      "key": "16BA61D7-0C6A-F8FF-AA70-B6BF66E27CBC.sonar.sources",
+      "value": "D:\\AppLocal\\LocalMarket\\LocalMarket.API\\appsettings.Development.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\appsettings.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\obj\\LocalMarket.API.csproj.nuget.dgspec.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\obj\\project.assets.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\Properties\\launchSettings.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\bin\\Debug\\net10.0\\appsettings.Development.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\bin\\Debug\\net10.0\\appsettings.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\bin\\Debug\\net10.0\\LocalMarket.API.deps.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\bin\\Debug\\net10.0\\LocalMarket.API.runtimeconfig.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\bin\\Debug\\net10.0\\LocalMarket.API.staticwebassets.endpoints.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\bin\\Release\\net10.0\\appsettings.Development.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\bin\\Release\\net10.0\\appsettings.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\bin\\Release\\net10.0\\LocalMarket.API.deps.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\bin\\Release\\net10.0\\LocalMarket.API.runtimeconfig.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\bin\\Release\\net10.0\\LocalMarket.API.staticwebassets.endpoints.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\obj\\Debug\\net10.0\\ApiEndpoints.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\obj\\Debug\\net10.0\\LocalMarket.API.sourcelink.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\obj\\Debug\\net10.0\\rjsmcshtml.dswa.cache.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\obj\\Debug\\net10.0\\rjsmrazor.dswa.cache.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\obj\\Debug\\net10.0\\rpswa.dswa.cache.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\obj\\Debug\\net10.0\\staticwebassets.build.endpoints.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\obj\\Debug\\net10.0\\staticwebassets.build.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\obj\\Release\\net10.0\\ApiEndpoints.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\obj\\Release\\net10.0\\rjsmcshtml.dswa.cache.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\obj\\Release\\net10.0\\rjsmrazor.dswa.cache.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\obj\\Release\\net10.0\\rpswa.dswa.cache.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\obj\\Release\\net10.0\\staticwebassets.build.endpoints.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\obj\\Release\\net10.0\\staticwebassets.build.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\bin\\Debug\\net10.0\\BuildHost-net472\\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.exe.config,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\bin\\Debug\\net10.0\\BuildHost-netcore\\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.deps.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\bin\\Debug\\net10.0\\BuildHost-netcore\\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.runtimeconfig.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\obj\\Debug\\net10.0\\EndpointInfo\\LocalMarket.API.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\obj\\Release\\net10.0\\EndpointInfo\\LocalMarket.API.json,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\Controllers\\AuthController.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\Controllers\\BusinessCategoryController.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\Controllers\\BusinessController.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\Controllers\\FavoriteController.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\Controllers\\ProductController.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\Controllers\\ReviewController.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\Controllers\\ScheduleController.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\Middleware\\GlobalExceptionHandler.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\Program.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\obj\\Debug\\net10.0\\LocalMarket.API.GlobalUsings.g.cs,\"D:\\AppLocal\\LocalMarket\\LocalMarket.API\\obj\\Debug\\net10.0\\.NETCoreApp,Version=v10.0.AssemblyAttributes.cs\",D:\\AppLocal\\LocalMarket\\LocalMarket.API\\obj\\Debug\\net10.0\\LocalMarket.API.AssemblyInfo.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\obj\\Debug\\net10.0\\LocalMarket.API.MvcApplicationPartsAssemblyInfo.cs,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\.env,D:\\AppLocal\\LocalMarket\\LocalMarket.API\\LocalMarket.API.http"
+    },
+    {
+      "key": "16BA61D7-0C6A-F8FF-AA70-B6BF66E27CBC.sonar.cs.analyzer.projectOutPaths",
+      "value": "D:\\AppLocal\\LocalMarket\\.sonarqube\\out\\2"
+    },
+    {
+      "key": "16BA61D7-0C6A-F8FF-AA70-B6BF66E27CBC.sonar.cs.roslyn.reportFilePaths",
+      "value": "D:\\AppLocal\\LocalMarket\\.sonarqube\\out\\2\\Issues.json"
+    },
+    {
+      "key": "16BA61D7-0C6A-F8FF-AA70-B6BF66E27CBC.sonar.cs.scanner.telemetry",
+      "value": "D:\\AppLocal\\LocalMarket\\.sonarqube\\out\\2\\Telemetry.json"
+    },
+    {
+      "key": "sonar.token",
+      "value": "***"
+    },
+    {
+      "key": "sonar.host.url",
+      "value": "http://localhost:9500"
+    },
+    {
+      "key": "sonar.cpd.exclusions",
+      "value": "**/Migrations/**"
+    },
+    {
+      "key": "sonar.exclusions",
+      "value": "**/Migrations/**"
+    },
+    {
+      "key": "sonar.visualstudio.enable",
+      "value": "false"
+    }
+  ]
+}

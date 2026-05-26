@@ -15,7 +15,7 @@ namespace LocalMarket.Infrastructure.Services
         }
 
         public async Task<List<BusinessDto>> GetAllAsync(
-            string? categoryId, string? city, string? search)
+            Guid? categoryId, string? city, string? search)
         {
             var businesses = await _businessRepository.GetAllAsync(categoryId, city, search);
             return businesses.Adapt<List<BusinessDto>>();
@@ -68,7 +68,7 @@ namespace LocalMarket.Infrastructure.Services
                 throw new UnauthorizedAccessException(
                     "You are not the owner of this business");
 
-            await _businessRepository.DeleteAsync(businessId);
+            await _businessRepository.DeleteAsync(business);
         }
     }
 }

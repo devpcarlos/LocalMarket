@@ -1,7 +1,6 @@
 ﻿using LocalMarket.Core.Entities;
 using LocalMarket.Core.Interfaces;
 using LocalMarket.Infrastructure.Persistence;
-using Mapster;
 using Microsoft.EntityFrameworkCore;
 
 namespace LocalMarket.Infrastructure.Repositories

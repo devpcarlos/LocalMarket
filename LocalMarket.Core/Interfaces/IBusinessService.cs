@@ -7,7 +7,7 @@ namespace LocalMarket.Core.Interfaces
 {
     public interface IBusinessService
     {
-        Task<List<BusinessDto>> GetAllAsync(string? categoryId, string? city, string? search);
+        Task<List<BusinessDto>> GetAllAsync(Guid? categoryId, string? city, string? search);
         Task<BusinessDto> GetByIdAsync(Guid id);
         Task<BusinessDto> CreateAsync(Guid userId, CreateBusinessDto dto);
         Task<BusinessDto> UpdateAsync(Guid userId, Guid businessId, UpdateBusinessDto dto);

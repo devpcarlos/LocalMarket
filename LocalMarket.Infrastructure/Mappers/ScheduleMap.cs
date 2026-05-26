@@ -6,14 +6,12 @@ using Mapster;
 
 namespace LocalMarket.Infrastructure.Mappers
 {
-    public class ScheduleProfile : IRegister
+    public class ScheduleMap : IRegister
     {
         public void Register(TypeAdapterConfig config)
         {
             //Scedule → ScheduleDto
             config.NewConfig<Schedule, ScheduleDto>()
-                .Ignore(dt => dt.Id)
-                .Ignore(dt => dt.BusinessId)
                 .Map(dt => dt.DayOfWeek, src => src.DayOfWeek)
                 .Map(dt => dt.OpeningTime, src => src.OpeningTime ?? TimeOnly.MinValue)
                 .Map(dt => dt.ClosingTime, src => src.ClosingTime ?? TimeOnly.MinValue)
