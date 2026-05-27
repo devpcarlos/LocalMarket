@@ -3,7 +3,6 @@ using LocalMarket.Core.DTos.Products;
 using LocalMarket.Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 
 namespace LocalMarket.API.Controllers
 {

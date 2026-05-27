@@ -2,5 +2,5 @@ projectKey=localmarketcore
 serverUrl=http://localhost:9500
 serverVersion=26.5.0.122743
 dashboardUrl=http://localhost:9500/dashboard?id=localmarketcore
-ceTaskId=e11a0109-cce9-4394-a352-0727d4af5c31
-ceTaskUrl=http://localhost:9500/api/ce/task?id=e11a0109-cce9-4394-a352-0727d4af5c31
+ceTaskId=dc28b42d-0a35-4f61-9fe8-a92697085c40
+ceTaskUrl=http://localhost:9500/api/ce/task?id=dc28b42d-0a35-4f61-9fe8-a92697085c40

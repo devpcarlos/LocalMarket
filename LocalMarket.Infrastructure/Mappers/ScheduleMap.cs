@@ -13,8 +13,8 @@ namespace LocalMarket.Infrastructure.Mappers
             //Scedule → ScheduleDto
             config.NewConfig<Schedule, ScheduleDto>()
                 .Map(dt => dt.DayOfWeek, src => src.DayOfWeek)
-                .Map(dt => dt.OpeningTime, src => src.OpeningTime ?? TimeOnly.MinValue)
-                .Map(dt => dt.ClosingTime, src => src.ClosingTime ?? TimeOnly.MinValue)
+                .Map(dt => dt.OpeningTime, src => src.OpeningTime)
+                .Map(dt => dt.ClosingTime, src => src.ClosingTime)
                 .Map(dt => dt.IsClosed, src => src.IsClosed);
 
             // ScheduleDto → Schedule -> creare o update
@@ -22,8 +22,8 @@ namespace LocalMarket.Infrastructure.Mappers
                 .Ignore(dt => dt.Id)
                 .Ignore(dt => dt.BusinessId)
                 .Map(dt => dt.DayOfWeek, src => src.DayOfWeek)
-                .Map(dt => dt.OpeningTime, src => src.OpeningTime ?? TimeOnly.MinValue)
-                .Map(dt => dt.ClosingTime, src => src.ClosingTime ?? TimeOnly.MinValue)
+                .Map(dt => dt.OpeningTime, src => src.OpeningTime)
+                .Map(dt => dt.ClosingTime, src => src.ClosingTime)
                 .Map(dt => dt.IsClosed, src => src.IsClosed);
 
         }

@@ -11,8 +11,8 @@ namespace LocalMarket.Core.DTos.Auth
         [EmailAddress(ErrorMessage = "Correo no válido")]
         public string Email { get; set; } = string.Empty;
 
-        [Required]
-        [RegularExpression("^(client | businessOwner)$", ErrorMessage = "Los roles válidos son 'client' o 'business'")]
+        [RegularExpression("^(Client|BusinessOwner)$",
+        ErrorMessage = "Role must be 'Client' or 'BusinessOwner'")]
         public string Role { get; set; } = "Client";
 
         [Phone(ErrorMessage = "Teléfono no válido")]

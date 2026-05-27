@@ -2,7 +2,7 @@
 
 namespace LocalMarket.Infrastructure.Utils
 {
-    public static class Encript
+    public static class PasswordHasher
     {
         public static string EncriptPassword(string password)
         {

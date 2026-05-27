@@ -13,8 +13,8 @@ namespace LocalMarket.Infrastructure.Mappers
             // Map from AddFavoriteDto to Favorite entity
             config.NewConfig<AddFavoriteDto, Favorite>()
                 .Map(dest => dest.BusinessId, src => src.BusinessId)
-                .Map(dest => dest.Id, _ => Guid.NewGuid())
                 .Map(dest => dest.CreatedAt, _ => DateTime.UtcNow)
+                .Ignore(dest => dest.Id, _ => Guid.NewGuid())
                 .Ignore(dest => dest.UserId);
         }
     }

@@ -9,7 +9,11 @@ D:\AppLocal\LocalMarket\LocalMarket.Core\DTos\Business\BusinessDto.cs
 D:\AppLocal\LocalMarket\LocalMarket.Core\DTos\Business\CreateBusinessDto.cs
 D:\AppLocal\LocalMarket\LocalMarket.Core\DTos\Business\UpdateBusinessDto.cs
 D:\AppLocal\LocalMarket\LocalMarket.Core\DTos\Common\ApiResponseDto.cs
+D:\AppLocal\LocalMarket\LocalMarket.Core\DTos\Conversations\ConversationDto.cs
+D:\AppLocal\LocalMarket\LocalMarket.Core\DTos\Favorites\AddFavoriteDto.cs
 D:\AppLocal\LocalMarket\LocalMarket.Core\DTos\Favorites\FavoriteDto.cs
+D:\AppLocal\LocalMarket\LocalMarket.Core\DTos\Messages\MessageDto.cs
+D:\AppLocal\LocalMarket\LocalMarket.Core\DTos\Messages\SendMessageDto.cs
 D:\AppLocal\LocalMarket\LocalMarket.Core\DTos\Products\CreateProductCategoryDto.cs
 D:\AppLocal\LocalMarket\LocalMarket.Core\DTos\Products\ProductCategoryDto.cs
 D:\AppLocal\LocalMarket\LocalMarket.Core\DTos\Products\ProductDto.cs
@@ -39,9 +43,12 @@ D:\AppLocal\LocalMarket\LocalMarket.Core\Interfaces\IBusinessCategoryRepository.
 D:\AppLocal\LocalMarket\LocalMarket.Core\Interfaces\IBusinessCategoryService.cs
 D:\AppLocal\LocalMarket\LocalMarket.Core\Interfaces\IBusinessRepository.cs
 D:\AppLocal\LocalMarket\LocalMarket.Core\Interfaces\IBusinessService.cs
+D:\AppLocal\LocalMarket\LocalMarket.Core\Interfaces\IConversationRepository.cs
+D:\AppLocal\LocalMarket\LocalMarket.Core\Interfaces\IConversationService.cs
 D:\AppLocal\LocalMarket\LocalMarket.Core\Interfaces\IFavoriteRepository.cs
 D:\AppLocal\LocalMarket\LocalMarket.Core\Interfaces\IFavoriteService.cs
 D:\AppLocal\LocalMarket\LocalMarket.Core\Interfaces\IJwtService.cs
+D:\AppLocal\LocalMarket\LocalMarket.Core\Interfaces\IMessageRepository.cs
 D:\AppLocal\LocalMarket\LocalMarket.Core\Interfaces\IProductCategoryRepository.cs
 D:\AppLocal\LocalMarket\LocalMarket.Core\Interfaces\IProductRepository.cs
 D:\AppLocal\LocalMarket\LocalMarket.Core\Interfaces\IProductService.cs

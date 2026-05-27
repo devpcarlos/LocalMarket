@@ -10,7 +10,9 @@ LD:\AppLocal\LocalMarket\LocalMarket.API\Middleware\GlobalExceptionHandler.csu
 ID:\AppLocal\LocalMarket\LocalMarket.API\Controllers\ScheduleController.csutf-8P
 GD:\AppLocal\LocalMarket\LocalMarket.API\Controllers\ReviewController.csutf-8Q
 HD:\AppLocal\LocalMarket\LocalMarket.API\Controllers\ProductController.csutf-8R
-ID:\AppLocal\LocalMarket\LocalMarket.API\Controllers\FavoriteController.csutf-8R
+ID:\AppLocal\LocalMarket\LocalMarket.API\Controllers\FavoriteController.csutf-8V
+MD:\AppLocal\LocalMarket\LocalMarket.API\Controllers\ConversationController.csutf-8R
 ID:\AppLocal\LocalMarket\LocalMarket.API\Controllers\BusinessController.csutf-8Z
 QD:\AppLocal\LocalMarket\LocalMarket.API\Controllers\BusinessCategoryController.csutf-8N
+ED:\AppLocal\LocalMarket\LocalMarket.API\Controllers\BaseController.csutf-8N
 ED:\AppLocal\LocalMarket\LocalMarket.API\Controllers\AuthController.csutf-8

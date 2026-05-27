@@ -84,7 +84,37 @@ builder.Services.AddCors(options =>
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+builder.Services.AddOpenApi(options =>
+{
+    options.AddDocumentTransformer((document, context, cancellationToken) =>
+    {
+        // 1. Asegurar que Components NO sea null antes de usarlo
+        if (document.Components == null)
+        {
+            document.Components = new Microsoft.OpenApi.OpenApiComponents();
+        }
+
+        // 2. Asegurar que SecuritySchemes NO sea null tampoco
+        if (document.Components.SecuritySchemes == null)
+        {
+            document.Components.SecuritySchemes = new Dictionary<string, Microsoft.OpenApi.IOpenApiSecurityScheme>();
+        }
+
+        // 3. Crear el esquema de seguridad de forma segura
+        var scheme = new Microsoft.OpenApi.OpenApiSecurityScheme
+        {
+            Type = Microsoft.OpenApi.SecuritySchemeType.Http,
+            Scheme = "bearer",
+            BearerFormat = "JWT",
+            Description = "Introduce tu token JWT aquí para autenticarte."
+        };
+
+        // 4. Agregar de forma segura el esquema sin causar excepciones nulas
+        document.Components.SecuritySchemes.Add("BearerAuth", scheme);
+
+        return Task.CompletedTask;
+    });
+});
 
 var app = builder.Build();
 

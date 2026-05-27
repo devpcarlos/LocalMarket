@@ -38,9 +38,8 @@ namespace LocalMarket.Infrastructure.Services
                 throw new InvalidOperationException("Email already in use");
 
             var user = request.Adapt<User>();
-            user.Role = Enum.Parse<UserRole>(request.Role, ignoreCase: true);
             user.Id = Guid.NewGuid();
-            user.PasswordHash = Encript.EncriptPassword(request.Password);
+            user.PasswordHash = PasswordHasher.EncriptPassword(request.Password);
 
             await _userRepository.CreateAsync(user);
 
@@ -53,7 +52,7 @@ namespace LocalMarket.Infrastructure.Services
               request.Email.ToLowerInvariant().Trim())
                 ?? throw new UnauthorizedAccessException("Invalid email or password");
 
-            if ( !Encript.VerifyPassword(request.Password, user.PasswordHash))
+            if ( !PasswordHasher.VerifyPassword(request.Password, user.PasswordHash))
                 throw new UnauthorizedAccessException("Invalid credentials");
 
             return await BuildAuthResponse(user, ipAddress: null);

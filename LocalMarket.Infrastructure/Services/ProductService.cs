@@ -63,7 +63,7 @@ namespace LocalMarket.Infrastructure.Services
                 ?? throw new KeyNotFoundException("Business not found");
 
             if (business.UserId != userId)
-                throw new UnauthorizedAccessException(nameof(userId));
+                throw new UnauthorizedAccessException("you are not owner of this business");
 
             dto.Adapt(product);
             var updated = await _productRepository.UpdateAsync(product);

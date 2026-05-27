@@ -19,12 +19,7 @@ namespace LocalMarket.Infrastructure.Repositories
             return await _dbContext.Schedules
                 .Where(s => s.BusinessId == businessId)
                 .OrderBy(s => s.DayOfWeek).ToListAsync();
-        }
-
-        public async Task<Schedule?> GetByIdAsync(Guid id)
-        {
-            return await _dbContext.Schedules.FindAsync(id);
-        }
+        }        
 
         public async Task<Schedule?> GetByBusinessAndDayAsync(Guid businessId, int dayOfWeek)
         {
@@ -62,6 +57,11 @@ namespace LocalMarket.Infrastructure.Repositories
         public async Task SaveChangesAsync()
         {
             await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task<Schedule?> GetByIdAsync(Guid id)
+        {
+            return await _dbContext.Schedules.FindAsync(id);
         }
     }
 }

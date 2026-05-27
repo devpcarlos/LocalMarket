@@ -17,7 +17,6 @@ namespace LocalMarket.Infrastructure
         public static IServiceCollection AddInfrastructure(
         this IServiceCollection services)
         {
-            // Supabase — lee variables de entorno
             var conection = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING")
             ?? throw new InvalidOperationException("DB_CONNECTION_STRING no configurado");
 
@@ -41,6 +40,8 @@ namespace LocalMarket.Infrastructure
             services.AddScoped<IScheduleService, ScheduleService>();
             services.AddScoped<IFavoriteService, FavoriteService>();
             services.AddScoped<IReviewService, ReviewService>();
+            services.AddScoped<IConversationService, ConversationService>();
+            services.AddScoped<ISubscriptionService, SubscriptionService>();
 
             //Repositorios
 
@@ -53,6 +54,9 @@ namespace LocalMarket.Infrastructure
             services.AddScoped<IScheduleRepository, ScheduleRepository>();
             services.AddScoped<IFavoriteRepository, FavoriteRepository>();
             services.AddScoped<IReviewRepository, ReviewRepository>();
+            services.AddScoped<IConversationRepository, ConversationRepository>();
+            services.AddScoped<IMessageRepository, MessageRepository>();
+            services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
 
             return services;
             }
